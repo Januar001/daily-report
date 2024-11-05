@@ -27,15 +27,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Hari</td>
-                            <td>Hari Wicaksono</td>
-                            <td>0895336782518</td>
-                            <td>hari.w@gmail.com</td>
-                            <td><span class="badge bg-warning">Account Officer</span></td>
-                            <td>Create,Update,Delete</td>
-                        </tr>
+                        @foreach ($users as $index => $user)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $user->code }}</td>
+                        <td>{{ $user->nama }}</td>
+                        <td>{{ $user->no_hp }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            <span class="badge bg-warning text-dark">{{ $user->jabatan }}</span>
+                        </td>
+                        <td>
+                            <a href="#" class="text-primary">Create</a>,
+                            <a href="#" class="text-success">Update</a>,
+                            <a href="#" class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
                     </tbody>
                 </table>
             </div>
