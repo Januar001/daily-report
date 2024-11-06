@@ -27,29 +27,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>0983298910</td>
-                            <td>Sunandar</td>
-                            <td>Jl. Kepuh Kembar RT.04 RW50 Sidoklumpuk - Sidoarjo</td>
-                            <td>Hari Wicaksono</td>
-                            <td><span class="badge bg-success">KOL 1</span></td>
-                            <td>Create,Update,Delete</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>0983298921</td>
-                            <td>Supiyanda</td>
-                            <td>Jl. Kepuh kiriman RT.05 RW.01 Sidosermo - Surabaya</td>
-                            <td>Hendro</td>
-                            <td><span class="badge bg-warning">KOL 4</span></td>
-                            <td>Create,Update,Delete</td>
-                        </tr>
+                        @foreach ($nasabah as $index => $item)
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{$item->CIF}}</td>
+                                <td>{{$item->nama}}</td>
+                                <td>{{$item->alamat}}</td>
+                                <td>{{$item->AO}}</td>
+                                <td><span class="badge bg-success">{{$item->Kolektibilitas}}</span></td>
+                                <td>Create,Update,Delete</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <!-- /.card-body -->
         </div>
+        <div class="mt-2">
+            {{ $nasabah->links('pagination::bootstrap-5')  }}
+        </div>
         <!-- /.card -->
     </div>
 @endsection
+
+

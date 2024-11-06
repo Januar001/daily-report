@@ -27,15 +27,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $index => $user)
+                        @foreach ($users as $index => $item)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $user->code }}</td>
-                        <td>{{ $user->nama }}</td>
-                        <td>{{ $user->no_hp }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $item->code }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->no_hp }}</td>
+                        <td>{{ $item->email }}</td>
                         <td>
-                            <span class="badge bg-warning text-dark">{{ $user->jabatan }}</span>
+                            <span class="badge bg-warning text-dark">{{ $item->jabatan }}</span>
                         </td>
                         <td>
                             <a href="#" class="text-primary">Create</a>,
@@ -48,6 +48,9 @@
                 </table>
             </div>
             <!-- /.card-body -->
+        </div>
+        <div class="mt-2">
+            {{ $users->links('pagination::bootstrap-5')  }}
         </div>
         <!-- /.card -->
     </div>
