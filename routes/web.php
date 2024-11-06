@@ -25,6 +25,8 @@ Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/nasabah', [NasabahController::class, 'index'])->name('nasabah.index');
 
+Route::get('/nasabah/{cif}', [NasabahController::class, 'show'])->name('nasabah.show');
+
 Route::get('/report/kunjungan', [KunjunganController::class, 'index'])->name('report.kunjungan');
 
 Route::get('/report/marketing', [MarketingController::class, 'index'])->name('report.marketing');

@@ -30,13 +30,17 @@
                         @foreach ($nasabah as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 + ($nasabah->currentPage() - 1) * $nasabah->perPage() }}</td>
-                                <td>{{ $item->CIF }}</td>
+                                <td><a href="{{ route('nasabah.show', $item->CIF) }}"
+                                        style="text-decoration: none;">{{ $item->CIF }}</a> </td>
+
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->alamat }}</td>
                                 <td>{{ $item->AO }}</td>
                                 <td>
                                     @if ($item->Kolektibilitas === 'KOL 1')
-                                        <span class="badge bg-primary">{{ $item->Kolektibilitas }}</span>
+                                        <span
+                                            class="badge
+                                        bg-primary">{{ $item->Kolektibilitas }}</span>
                                     @elseif ($item->Kolektibilitas === 'KOL 2')
                                         <span class="badge bg-success">{{ $item->Kolektibilitas }}</span>
                                     @elseif ($item->Kolektibilitas === 'KOL 3')
