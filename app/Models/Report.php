@@ -12,7 +12,12 @@ class Report extends Model
     protected $fillable = [
         'user_id',
         'nasabah_id',
-        'date_created',
+        'latitude',
+        'longitude',
+        'lokasi_kunjungan',
+        'keterangan',
+        'foto',
+        'jenis_kunjungan',
     ];
 
     public function user()
@@ -25,8 +30,8 @@ class Report extends Model
         return $this->belongsTo(Nasabah::class);
     }
 
-    public function detailReports()
-    {
-        return $this->hasMany(DetailReport::class);
-    }
+    // public function detailReports()
+    // {
+    //     return $this->hasOne(DetailReport::class);
+    // }
 }

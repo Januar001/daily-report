@@ -6,8 +6,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Report;
 use App\Models\Nasabah;
-use App\Models\DetailReport;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
-        Nasabah::factory(500)->create();
-        Report::factory(10)->create();
-        DetailReport::factory(10)->create();
+        // $this->call(UserSeeder::class);
+        User::factory(5)->create();
+        Nasabah::factory(15)->create();
+        Report::factory(100)->create();
     }
 }

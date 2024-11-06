@@ -5,7 +5,7 @@
         <div class="col-lg-3 col-6"> <!--begin::Small Box Widget 1-->
             <div class="small-box text-bg-primary">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{ $JMLLAPORAN }}</h3>
                     <p>Laporan Masuk</p>
                 </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -20,7 +20,7 @@
         <div class="col-lg-3 col-6"> <!--begin::Small Box Widget 2-->
             <div class="small-box text-bg-success">
                 <div class="inner">
-                    <h3>53</h3>
+                    <h3>{{ $NASABAH }}</h3>
                     <p>Nasabah</p>
                 </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -35,7 +35,7 @@
         <div class="col-lg-3 col-6"> <!--begin::Small Box Widget 3-->
             <div class="small-box text-bg-warning">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{ $AO }}</h3>
                     <p>Account Officer</p>
                 </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

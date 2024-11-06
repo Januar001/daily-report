@@ -29,12 +29,24 @@
                     <tbody>
                         @foreach ($nasabah as $index => $item)
                             <tr>
-                                <td>{{$index+1}}</td>
-                                <td>{{$item->CIF}}</td>
-                                <td>{{$item->nama}}</td>
-                                <td>{{$item->alamat}}</td>
-                                <td>{{$item->AO}}</td>
-                                <td><span class="badge bg-success">{{$item->Kolektibilitas}}</span></td>
+                                <td>{{ $index + 1 + ($nasabah->currentPage() - 1) * $nasabah->perPage() }}</td>
+                                <td>{{ $item->CIF }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->alamat }}</td>
+                                <td>{{ $item->AO }}</td>
+                                <td>
+                                    @if ($item->Kolektibilitas === 'KOL 1')
+                                        <span class="badge bg-primary">{{ $item->Kolektibilitas }}</span>
+                                    @elseif ($item->Kolektibilitas === 'KOL 2')
+                                        <span class="badge bg-success">{{ $item->Kolektibilitas }}</span>
+                                    @elseif ($item->Kolektibilitas === 'KOL 3')
+                                        <span class="badge bg-warning">{{ $item->Kolektibilitas }}</span>
+                                    @elseif ($item->Kolektibilitas === 'KOL 4')
+                                        <span class="badge bg-danger">{{ $item->Kolektibilitas }}</span>
+                                    @else
+                                        <span class="badge bg-secondary">{{ $item->Kolektibilitas }}</span>
+                                    @endif
+                                </td>
                                 <td>Create,Update,Delete</td>
                             </tr>
                         @endforeach
@@ -44,10 +56,8 @@
             <!-- /.card-body -->
         </div>
         <div class="mt-2">
-            {{ $nasabah->links('pagination::bootstrap-5')  }}
+            {{ $nasabah->links('pagination::bootstrap-5') }}
         </div>
         <!-- /.card -->
     </div>
 @endsection
-
-

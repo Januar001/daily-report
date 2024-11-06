@@ -1,8 +1,12 @@
 <?php
 
-use App\Http\Controllers\NasabahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SurveiController;
+use App\Http\Controllers\NasabahController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KunjunganController;
+use App\Http\Controllers\MarketingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,26 +19,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', function () {
-    return view('dashboard');
-});
-// Route::get('/user', function () {
-//     return view('user');
-// });
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/nasabah', [NasabahController::class, 'index'])->name('nasabah.index');
 
-Route::get('/report/kunjungan', function () {
-    return view('report-kunjungan');
-});
-Route::get('/report/marketing', function () {
-    return view('report-marketing');
-});
-Route::get('/report/survei', function () {
-    return view('report-survei');
-});
+Route::get('/report/kunjungan', [KunjunganController::class, 'index'])->name('report.kunjungan');
+
+Route::get('/report/marketing', [MarketingController::class, 'index'])->name('report.marketing');
+
+Route::get('/report/survei', [SurveiController::class, 'index'])->name('report.survei');
+

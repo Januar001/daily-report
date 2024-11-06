@@ -17,9 +17,14 @@ class ReportFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
-            'nasabah_id' => Nasabah::factory(),
-            'date_created' => now(),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'nasabah_id' => Nasabah::inRandomOrder()->first()->id,
+            'latitude' => $this->faker->latitude,
+            'longitude' => $this->faker->longitude,
+            'lokasi_kunjungan' => $this->faker->address,
+            'keterangan' => $this->faker->text('20'),
+            'foto' => $this->faker->imageUrl(),
+            'jenis_kunjungan' => $this->faker->randomElement(['Survei', 'Marketing', 'Kunjungan']),
         ];
     }
 }

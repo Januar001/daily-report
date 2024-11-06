@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('nasabah_id')->constrained('nasabah')->onDelete('cascade');
-            $table->dateTime('date_created');
+            $table->decimal('latitude', 10, 8);
+            $table->decimal('longitude', 11, 8);
+            $table->string('lokasi_kunjungan', 255);
+            $table->text('keterangan');
+            $table->string('foto', 255)->nullable();
+            $table->string('jenis_kunjungan', 255);
             $table->timestamps();
         });
     }

@@ -28,29 +28,33 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $index => $item)
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ $item->code }}</td>
-                        <td>{{ $item->nama }}</td>
-                        <td>{{ $item->no_hp }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>
-                            <span class="badge bg-warning text-dark">{{ $item->jabatan }}</span>
-                        </td>
-                        <td>
-                            <a href="#" class="text-primary">Create</a>,
-                            <a href="#" class="text-success">Update</a>,
-                            <a href="#" class="text-danger">Delete</a>
-                        </td>
-                    </tr>
-                @endforeach
+                            <tr>
+                                <td>{{ $index + 1 + ($users->currentPage() - 1) * $users->perPage() }}</td>
+                                <td>{{ $item->code }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->no_hp }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>
+                                    @if ($item->jabatan === 'Account Officer')
+                                        <span class="badge bg-warning">{{ $item->jabatan }}</span>
+                                    @else
+                                        <span class="badge bg-primary">{{ $item->jabatan }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="#" class="text-primary">Create</a>,
+                                    <a href="#" class="text-success">Update</a>,
+                                    <a href="#" class="text-danger">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <!-- /.card-body -->
         </div>
         <div class="mt-2">
-            {{ $users->links('pagination::bootstrap-5')  }}
+            {{ $users->links('pagination::bootstrap-5') }}
         </div>
         <!-- /.card -->
     </div>

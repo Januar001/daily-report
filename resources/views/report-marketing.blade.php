@@ -20,26 +20,35 @@
                             <th>Foto</th>
                             <th>AO</th>
                             <th>latlong</th>
-                            <th>Lokasi</th>
+                            <th>Lokasi Marketing</th>
                             <th>Keterangan</th>
                             <th>Waktu</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><img src="{{ asset('template/dist/assets/img/user1-128x128.jpg') }}" class="rounded"
-                                    alt="..."></td>
-                            <td>Hendro</td>
-                            <td>-7.0920190,112.290190</td>
-                            <td>Jl. Kepuh Kembar RT.04 RW50 Sidoklumpuk - Sidoarjo</td>
-                            <td>Marketingan</td>
-                            <td>16.00 WIB<br>(17 Oktober 2024)</td>
-                        </tr>
+                        @foreach ($marketing as $index => $item)
+                            <tr>
+                                <td>{{ $index + 1 + ($marketing->currentPage() - 1) * $marketing->perPage() }}</td>
+                                {{-- <td><img src="{{ asset('template/dist/assets/img/user1-128x128.jpg') }}" class="rounded"
+                                        alt="..."></td> --}}
+                                <td><img src="{{ $item->foto }}" class="rounded" style="max-height: 10vh" alt="...">
+                                </td>
+                                <td>{{ $item->user->nama }}</td>
+                                <td>{{ $item->latitude }}, {{ $item->longitude }}</td>
+                                <td>{{ $item->lokasi_kunjungan }}</td>
+                                <td>{{ $item->keterangan }}</td>
+                                <td>
+                                    {{ \Carbon\Carbon::parse($item->created_at)->format('H.i') . ' WIB' }}<br>({{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }})
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <!-- /.card-body -->
+        </div>
+        <div class="mt-2">
+            {{ $marketing->links('pagination::bootstrap-5') }}
         </div>
         <!-- /.card -->
     </div>
