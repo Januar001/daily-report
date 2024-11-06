@@ -18,6 +18,7 @@ class Report extends Model
         'keterangan',
         'foto',
         'jenis_kunjungan',
+        'kolek_lap',
     ];
 
     public function user()

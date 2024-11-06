@@ -17,10 +17,11 @@ return new class extends Migration
             $table->foreignId('nasabah_id')->constrained('nasabah')->onDelete('cascade');
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
-            $table->string('lokasi_kunjungan', 255);
+            $table->string('lokasi_kunjungan', 255)->nullable();
             $table->text('keterangan');
             $table->string('foto', 255)->nullable();
             $table->string('jenis_kunjungan', 255);
+            $table->string('kolek_lap', 20)->nullable();
             $table->timestamps();
         });
     }
