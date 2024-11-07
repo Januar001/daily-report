@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Nasabah;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,7 @@ class NasabahFactory extends Factory
             'nama' => $this->faker->name,
             'CIF' => $this->faker->unique()->numerify('CIF###'),
             'alamat' => $this->faker->address,
-            'AO' => $this->faker->name,
+            'user_id' => User::inRandomOrder()->first()->id,
             'Kolektibilitas' => $this->faker->randomElement(['KOL 1', 'KOL 2', 'KOL 3', 'KOL 4','KOL 5']),
         ];
     }

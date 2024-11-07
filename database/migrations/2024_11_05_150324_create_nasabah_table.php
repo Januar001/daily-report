@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama', 100);
             $table->string('CIF', 50)->unique();
             $table->text('alamat');
-            $table->string('AO', 100);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('Kolektibilitas', 20);
             $table->timestamps();
         });

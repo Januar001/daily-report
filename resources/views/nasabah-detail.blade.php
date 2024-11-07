@@ -35,7 +35,7 @@
                                 <tr>
                                     <th>Account Officer</th>
                                     <th>:</th>
-                                    <td>{{ $nasabah->AO }}</td>
+                                    <td>{{ $nasabah->user->nama }}</td>
                                 </tr>
                                 <tr>
                                     <th>Kolektibilitas</th>

@@ -17,7 +17,7 @@ class NasabahController extends Controller
 
     public function show($cif)
     {
-        $nasabah = Nasabah::where('cif', $cif)->first(); // Mengambil data nasabah berdasarkan CIF
+        $nasabah = Nasabah::with('user')->where('cif', $cif)->first(); // Mengambil data nasabah berdasarkan CIF
         $report = Report::with('nasabah','user')->where('nasabah_id',$nasabah->id)->get();
         $report_last = Report::with('nasabah','user')->where('nasabah_id',$nasabah->id)->latest()->first();
         // $lat = $report_last->latitude;
@@ -34,6 +34,6 @@ class NasabahController extends Controller
         }
 
         return view('nasabah-detail', ['nasabah'=>$nasabah,'report'=>$report,'latlong'=>$latlong]); // Mengarahkan ke view dan mengirim data nasabah
-        // return $report;
+        // return $nasabah;
     }
 }
