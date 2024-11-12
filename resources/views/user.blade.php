@@ -42,9 +42,8 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="#" class="text-primary">Create</a>,
-                                    <a href="#" class="text-success">Update</a>,
-                                    <a href="#" class="text-danger">Delete</a>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
                                 </td>
                             </tr>
                         @endforeach

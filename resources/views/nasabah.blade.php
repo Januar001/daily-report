@@ -51,7 +51,10 @@
                                         <span class="badge bg-secondary">{{ $item->Kolektibilitas }}</span>
                                     @endif
                                 </td>
-                                <td>Create,Update,Delete</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
